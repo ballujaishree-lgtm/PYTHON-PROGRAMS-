@@ -1,4 +1,4 @@
-# write a python program that accepts a std's personal and academic details 
+'''# write a python program that accepts a std's personal and academic details 
 std_name=input("Enter student name :")
 std_usn=input("Enter student usn:")
 branch=input("Enter branch of the student:")
@@ -68,11 +68,49 @@ elif choice == 6:
     print("Result =", result, "°C")
 
 else:
-    print("Invalid choice")
+    print("Invalid choice")'''
 
 
+# Write a python program to create a simple contact book using list & dictionaries. The 
 
+contacts=[]
+while True:
+    print("1. Add Contact")
+    print("2. View Contacts")
+    print("3. Search Contact")
+    print("4. Exit")
+    choice = int(input("Enter your choice: "))
 
+    if choice == 1:
+        name = input("Enter contact name: ")
+        phone = input("Enter contact phone number: ")
+        email = input("Enter contact email: ")
+        contact = {"name": name, "phone": phone, "email": email}
+        contacts.append(contact)
+        print("Contact added successfully!")
+
+    elif choice == 2:
+        if not contacts:
+            print("No contacts found.")
+        else:
+            for i, contact in enumerate(contacts):
+                print(f"{i + 1}. Name: {contact['name']}, Phone: {contact['phone']}, Email: {contact['email']}")
+
+    elif choice == 3:
+        search_name = input("Enter the name to search: ")
+        found_contacts = [contact for contact in contacts if contact['name'].lower() == search_name.lower()]
+        if not found_contacts:
+            print("No contacts found with that name.")
+        else:
+            for contact in found_contacts:
+                print(f"Name: {contact['name']}, Phone: {contact['phone']}, Email: {contact['email']}")
+
+    elif choice == 4:
+        print("Exiting the contact book.")
+        break
+
+    else:
+        print("Invalid choice. Please try again.")
 
 
 
